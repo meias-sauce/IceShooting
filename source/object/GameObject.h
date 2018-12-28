@@ -8,6 +8,7 @@ private:
 	Vector2 pos = {};
 	Vector2 velo = {};
 	Vector2 accel = {};
+	float angle;
 	Resource* graphic = nullptr;
 
 public:

@@ -67,9 +67,9 @@ Resource * Resource::Load(const char * filePath)
 }
 
 //Camera‚É—Š‚Þ
-void Resource::Draw(float x, float y)
+void Resource::Draw(float x, float y, float angle)
 {
-	Resource::camera->Draw(x, y, this->handle);
+	Resource::camera->Draw(x, y, angle, this->handle);
 }
 
 Resource::~Resource()

@@ -32,6 +32,6 @@ private:
 
 public:
 	static Resource* Load(const char* filePath);
-	void Draw(float x, float y);
+	void Draw(float x, float y, float angle);
 	~Resource();
 };

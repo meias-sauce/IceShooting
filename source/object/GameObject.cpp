@@ -1,6 +1,7 @@
 #include "GameObject.h"
 
 GameObject::GameObject() {
+	angle = 0;
 }
 
 
@@ -17,6 +18,6 @@ void GameObject::Update() {
 
 void GameObject::Draw() {
 	if (graphic != nullptr) {
-		graphic->Draw(pos.x, pos.y);
+		graphic->Draw(pos.x, pos.y, angle);
 	}
 }
