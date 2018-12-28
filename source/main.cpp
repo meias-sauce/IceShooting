@@ -43,6 +43,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	auto size = Vector2(400, 30);
 	float angle = 0;
 	auto rect = Rect(center, size, angle);
+
+	auto center2 = Vector2(500, 240);
+	float angle2 = 1.5;
+	auto rect2 = Rect(center2, size, angle2);
+
+
 	//auto key = ControllerFacade::GetInstance();
 
 	//ƒƒCƒ“ƒ‹[ƒv
@@ -51,10 +57,17 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		clsDx();
 
 		angle += 0.03;
+		angle2 += 0.01;
 		rect.SetParameter(center, size, angle);
+		rect2.SetParameter(center2, size, angle2);
 		rect.Draw();
+		rect2.Draw();
+		if (rect.isCollision(rect2)) {
+			printfDx("‚ ‚Ä‚Ä‚ñ‚Ì‚æ");
+		}
 
-		printfDx("“®ì³í");
+
+		//printfDx("“®ì³í");
 	}
 
 	DxLib_End();
