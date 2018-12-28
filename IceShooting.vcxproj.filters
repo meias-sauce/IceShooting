@@ -5,17 +5,21 @@
     <ClCompile Include="source\camera\Camera.cpp" />
     <ClCompile Include="source\object\GameObject.cpp" />
     <ClCompile Include="source\resource\Resource.cpp" />
-    <ClCompile Include="source\resource\ResourceManager.cpp" />
     <ClCompile Include="source\state\GameState.cpp" />
     <ClCompile Include="source\state\GameStateManager.cpp" />
+    <ClCompile Include="source\Vector2.cpp" />
+    <ClCompile Include="source\key\KeyChecker.cpp" />
+    <ClCompile Include="source\key\KeyFacade.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\main.h" />
     <ClInclude Include="source\camera\Camera.h" />
     <ClInclude Include="source\object\GameObject.h" />
     <ClInclude Include="source\resource\Resource.h" />
-    <ClInclude Include="source\resource\ResourceManager.h" />
     <ClInclude Include="source\state\GameState.h" />
     <ClInclude Include="source\state\GameStateManager.h" />
+    <ClInclude Include="source\Vector2.h" />
+    <ClInclude Include="source\key\KeyChecker.h" />
+    <ClInclude Include="source\key\KeyFacade.h" />
   </ItemGroup>
 </Project>

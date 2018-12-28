@@ -1,18 +1,10 @@
 #include "Resource.h"
 #include "DxLib.h"
 
-enum ResourceType {
-	SOUND,
-	GRAPHIC
-};
 
-enum ResourceExtension {
-	MP3,
-	WAV,
-	OGG,
-	PNG,
-	JPG
-};
+std::list<Resource*> Resource::resource_list = std::list<Resource*>();
+Camera* Resource::camera = Camera::GetInstance();
+
 
 Resource::Resource(const char * filePath) {
 	this->filePath = filePath;
@@ -72,6 +64,12 @@ Resource * Resource::Load(const char * filePath)
 		}
 	}
 	return new Resource(filePath);
+}
+
+//Camera‚É—Š‚Þ
+void Resource::Draw(float x, float y)
+{
+	Resource::camera->Draw(x, y, this->handle);
 }
 
 Resource::~Resource()

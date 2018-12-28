@@ -19,3 +19,8 @@ Camera* Camera::GetInstance()
 Camera::~Camera()
 {
 }
+
+void Camera::Draw(float x, float y, int handle)
+{
+}
+
