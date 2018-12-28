@@ -1,5 +1,7 @@
 #include "main.h"
 #include "DxLib.h"
+#include "Rect.h"
+#include "controller/ControllerFacade.h"
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
@@ -29,17 +31,29 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 
 	//DxLib‰Šú‰»
-	if (DxLib_Init() == -1)	{
+	if (DxLib_Init() == -1) {
 		return -1;
 	}
 
 	//•`‰ææ‚ğ— ‰æ–Ê‚Éİ’è
 	SetDrawScreen(DX_SCREEN_BACK);
 
+
+	auto center = Vector2(200, 200);
+	auto size = Vector2(400, 30);
+	float angle = 0;
+	auto rect = Rect(center, size, angle);
+	//auto key = ControllerFacade::GetInstance();
+
 	//ƒƒCƒ“ƒ‹[ƒv
 	while (ScreenFlip() == 0 && ProcessMessage() == 0 && ClearDrawScreen() == 0 /*&& gpUpdateKey() == 0*/) {
 		//printfDx‚ğÁ‹
 		clsDx();
+
+		angle += 0.03;
+		rect.SetParameter(center, size, angle);
+		rect.Draw();
+
 		printfDx("“®ì³í");
 	}
 

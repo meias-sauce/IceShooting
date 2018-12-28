@@ -10,6 +10,9 @@
     <ClCompile Include="source\Vector2.cpp" />
     <ClCompile Include="source\controller\ControllerChecker.cpp" />
     <ClCompile Include="source\controller\ControllerFacade.cpp" />
+    <ClCompile Include="source\Line.cpp" />
+    <ClCompile Include="source\object\Player.cpp" />
+    <ClCompile Include="source\Rect.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\main.h" />
@@ -21,5 +24,8 @@
     <ClInclude Include="source\Vector2.h" />
     <ClInclude Include="source\controller\ControllerChecker.h" />
     <ClInclude Include="source\controller\ControllerFacade.h" />
+    <ClInclude Include="source\Line.h" />
+    <ClInclude Include="source\object\Player.h" />
+    <ClInclude Include="source\Rect.h" />
   </ItemGroup>
 </Project>

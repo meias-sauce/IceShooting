@@ -27,6 +27,14 @@ void Vector2::Normalize()
 	}
 }
 
+void Vector2::Rotate(float angle)
+{
+	float resultX = this->x * std::cos(angle) - this->y * std::sin(angle);
+	float resultY = this->x * std::sin(angle) + this->y * std::cos(angle);
+	this->x = resultX;
+	this->y = resultY;
+}
+
 Vector2::Vector2() {
 	this->x = 0;
 	this->y = 0;
