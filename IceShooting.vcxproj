@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -17,6 +17,24 @@
       <Configuration>Release</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\state\GameStateManager.cpp" />
+    <ClCompile Include="source\camera\Camera.cpp" />
+    <ClCompile Include="source\object\GameObject.cpp" />
+    <ClCompile Include="source\state\GameState.cpp" />
+    <ClCompile Include="source\resource\Resource.cpp" />
+    <ClCompile Include="source\resource\ResourceManager.cpp" />
+    <ClCompile Include="source\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\state\GameStateManager.h" />
+    <ClInclude Include="source\camera\Camera.h" />
+    <ClInclude Include="source\object\GameObject.h" />
+    <ClInclude Include="source\state\GameState.h" />
+    <ClInclude Include="source\resource\Resource.h" />
+    <ClInclude Include="source\resource\ResourceManager.h" />
+    <ClInclude Include="source\main.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -148,12 +166,6 @@
       <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="source\header\main.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="source\cpp\main.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
