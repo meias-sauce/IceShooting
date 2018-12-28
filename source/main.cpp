@@ -1,6 +1,5 @@
 #include "main.h"
 #include "DxLib.h"
-#include "key/KeyFacade.h"
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
@@ -37,19 +36,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	//•`‰ææ‚ğ— ‰æ–Ê‚Éİ’è
 	SetDrawScreen(DX_SCREEN_BACK);
 
-	auto key = KeyFacade();
-	float x = 0, y = 0;
-
 	//ƒƒCƒ“ƒ‹[ƒv
 	while (ScreenFlip() == 0 && ProcessMessage() == 0 && ClearDrawScreen() == 0 /*&& gpUpdateKey() == 0*/) {
 		//printfDx‚ğÁ‹
 		clsDx();
-		key.Update();
-		auto vec = key.analogVector();
-		vec.Normalize();
-		x += vec.x * 10;
-		y += vec.y * 10;
-		DrawBox(x, y, x + 100, y + 100, GetColor(255, 0, 0), true);
 		printfDx("“®ì³í");
 	}
 

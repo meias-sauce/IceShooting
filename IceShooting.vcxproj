@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\key\KeyChecker.cpp" />
-    <ClCompile Include="source\key\KeyFacade.cpp" />
+    <ClCompile Include="source\controller\ControllerChecker.cpp" />
+    <ClCompile Include="source\controller\ControllerFacade.cpp" />
     <ClCompile Include="source\state\GameStateManager.cpp" />
     <ClCompile Include="source\camera\Camera.cpp" />
     <ClCompile Include="source\object\GameObject.cpp" />
@@ -30,8 +30,8 @@
     <ClCompile Include="source\Vector2.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="source\key\KeyChecker.h" />
-    <ClInclude Include="source\key\KeyFacade.h" />
+    <ClInclude Include="source\controller\ControllerChecker.h" />
+    <ClInclude Include="source\controller\ControllerFacade.h" />
     <ClInclude Include="source\state\GameStateManager.h" />
     <ClInclude Include="source\camera\Camera.h" />
     <ClInclude Include="source\object\GameObject.h" />

@@ -1,6 +1,6 @@
 #pragma once
 
-class KeyChecker
+class ControllerChecker
 {
 private:
 public:
@@ -9,8 +9,8 @@ public:
 	int analogY;
 	int key_list[256];
 	void Update();
-	KeyChecker();
-	~KeyChecker();
+	ControllerChecker();
+	~ControllerChecker();
 };
 
 enum PadState {

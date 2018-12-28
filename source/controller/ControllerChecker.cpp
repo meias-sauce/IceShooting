@@ -1,7 +1,7 @@
-#include "KeyChecker.h"
+#include "ControllerChecker.h"
 #include "DxLib.h"
 
-void KeyChecker::Update()
+void ControllerChecker::Update()
 {
 	char tmpKey[256]; // Œ»Ý‚ÌƒL[‚Ì“ü—Íó‘Ô‚ðŠi”[‚·‚é
 	GetHitKeyStateAll(tmpKey);
@@ -55,7 +55,7 @@ void KeyChecker::Update()
 	}
 }
 
-KeyChecker::KeyChecker()
+ControllerChecker::ControllerChecker()
 {
 	for (auto key : this->key_list) {
 		key = 0;
@@ -68,6 +68,6 @@ KeyChecker::KeyChecker()
 }
 
 
-KeyChecker::~KeyChecker()
+ControllerChecker::~ControllerChecker()
 {
 }
