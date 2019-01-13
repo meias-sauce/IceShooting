@@ -48,8 +48,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	float angle2 = 1.5;
 	auto rect2 = Rect(center2, size, angle2);
 
-
-	//auto key = ControllerFacade::GetInstance();
+	auto controller = ControllerFacade::GetInstance();
 
 	//ƒƒCƒ“ƒ‹[ƒv
 	while (ScreenFlip() == 0 && ProcessMessage() == 0 && ClearDrawScreen() == 0 /*&& gpUpdateKey() == 0*/) {
@@ -58,11 +57,19 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 		angle += 0.03;
 		angle2 += 0.01;
+
+		controller->Update();
+		auto vec = controller->analogVector();
+
+		center.x += vec.x / 300;
+		center.y += vec.y / 300;
+
 		rect.SetParameter(center, size, angle);
 		rect2.SetParameter(center2, size, angle2);
 		rect.Draw();
 		rect2.Draw();
 		if (rect.isCollision(rect2)) {
+			StartJoypadVibration(DX_INPUT_PAD1, 500, 100);
 			printfDx("‚ ‚Ä‚Ä‚ñ‚Ì‚æ");
 		}
 

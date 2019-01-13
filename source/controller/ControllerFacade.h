@@ -37,7 +37,10 @@ public:
 
 	//アナログパッドの入力をベクトルで吐く
 	Vector2 analogVector();
-	//入力を正規化してから吐く
+	//入力を正規化してから吐く（方向だけ必要な時用）
 	Vector2 analogNormalizeVector();
+
+	//ゲームパッド（1個目）を指定のミリ秒振動させる
+	void PadVibration(int);
 };
 

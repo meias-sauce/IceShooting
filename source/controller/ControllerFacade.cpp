@@ -65,6 +65,15 @@ bool ControllerFacade::KeyUp(int keyNum)
 	return result;
 }
 
+bool ControllerFacade::PadConnect()
+{
+	bool result = false;
+	if (GetJoypadNum() > 0) {
+		result = true;
+	}
+	return result;
+}
+
 Vector2 ControllerFacade::analogVector()
 {
 	Vector2 result = { (float)this->contollerChecker->analogX, (float)this->contollerChecker->analogY };
@@ -76,4 +85,9 @@ Vector2 ControllerFacade::analogNormalizeVector()
 	auto result = this->analogVector();
 	result.Normalize();
 	return result;
+}
+
+void ControllerFacade::PadVibration(int milliSecond)
+{
+	StartJoypadVibration(DX_INPUT_PAD1, 1000, milliSecond);
 }
