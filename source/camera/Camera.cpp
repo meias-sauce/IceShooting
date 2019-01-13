@@ -30,3 +30,11 @@ void Camera::Draw(float x, float y, float angle, int handle)
 	DrawRotaGraph((int)drawX, (int)drawY, (double)extendRate, (double)angle, handle, true);
 }
 
+void Camera::AddExtendRate(float value) {
+	this->extendRate += value;
+}
+
+void Camera::SetExtendRate(float value) {
+	this->extendRate = value;
+}
+

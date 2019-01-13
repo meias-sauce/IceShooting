@@ -10,5 +10,11 @@ struct Vector2 {
 	void Rotate(float); //原点中心でangle回転させる
 	Vector2();
 	Vector2(float, float);
+
+	//四則演算定義
+	Vector2 operator+(float);
+	Vector2 operator-(float);
+	Vector2 operator*(float);
+	Vector2 operator/(float);
 };
 

@@ -7,6 +7,7 @@ Camera* Resource::camera = Camera::GetInstance();
 
 
 Resource::Resource(const char * filePath) {
+	this->trimHandle = -1;
 	this->filePath = filePath;
 	//拡張子抽出
 	auto dotPos = this->filePath.find_last_of('.');
@@ -50,6 +51,9 @@ Resource::Resource(const char * filePath) {
 		__asm int 3;
 		break;
 	}
+	if (this->handle == -1) {
+		__asm int 3;
+	}
 
 	//リストに追加
 	Resource::resource_list.push_back(this);
@@ -69,7 +73,32 @@ Resource * Resource::Load(const char * filePath)
 //Cameraに頼む
 void Resource::Draw(float x, float y, float angle)
 {
-	Resource::camera->Draw(x, y, angle, this->handle);
+	if (this->type == GRAPHIC) {
+		int forDrawHandle = this->handle;
+		if (this->trimHandle != -1) {
+			forDrawHandle = this->trimHandle;
+		}
+		Resource::camera->Draw(x, y, angle, forDrawHandle);
+	}
+	else {
+		__asm int 3;
+	}
+}
+
+//最初に読み込んだやつをトリムしたやつを作る
+void Resource::Trim(float x, float y, float width, float height)
+{
+	if (this->type == GRAPHIC) {
+		//既にトリムしたやつがあったら解放する
+		if (this->trimHandle != -1) {
+			DeleteGraph(this->trimHandle);
+		}
+		//トリムしたやつのハンドルを作る
+		this->trimHandle = DerivationGraph(x, y, width, height, this->handle);
+	}
+	else {
+		__asm int 3;
+	}
 }
 
 Resource::~Resource()
@@ -88,6 +117,9 @@ Resource::~Resource()
 		break;
 	case GRAPHIC:
 		DeleteGraph(this->handle);
+		if (this->trimHandle != -1) {
+			DeleteGraph(this->trimHandle);
+		}
 		break;
 	default:
 		__asm int 3;

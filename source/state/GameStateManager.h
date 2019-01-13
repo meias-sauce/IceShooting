@@ -1,4 +1,12 @@
 #pragma once
+#include "GameState.h"
+
+enum GameStateType {
+	TITLE,
+	PLAY,
+	RESULT
+};
+
 class GameStateManager final
 {
 private:
@@ -11,8 +19,16 @@ private:
 	GameStateManager(GameStateManager &&) = delete;
 	GameStateManager& operator=(GameStateManager &&) = delete;
 
+	//åªç›ÇÃGameState
+	GameState* state;
+
 public:
 	static GameStateManager* GetInstance();
 	~GameStateManager();
+
+	void Update();
+	void Draw();
+
+	void ChangeState(GameStateType toState);
 };
 

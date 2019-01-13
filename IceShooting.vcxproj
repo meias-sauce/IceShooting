@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\Rect.cpp" />
-    <ClCompile Include="source\Line.cpp" />
+    <ClCompile Include="source\collider\Rect.cpp" />
+    <ClCompile Include="source\collider\Line.cpp" />
     <ClCompile Include="source\object\Player.cpp" />
     <ClCompile Include="source\controller\ControllerChecker.cpp" />
     <ClCompile Include="source\controller\ControllerFacade.cpp" />
@@ -31,10 +31,11 @@
     <ClCompile Include="source\resource\Resource.cpp" />
     <ClCompile Include="source\main.cpp" />
     <ClCompile Include="source\Vector2.cpp" />
+    <ClCompile Include="source\state\Title.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="source\Rect.h" />
-    <ClInclude Include="source\Line.h" />
+    <ClInclude Include="source\collider\Rect.h" />
+    <ClInclude Include="source\collider\Line.h" />
     <ClInclude Include="source\object\Player.h" />
     <ClInclude Include="source\controller\ControllerChecker.h" />
     <ClInclude Include="source\controller\ControllerFacade.h" />
@@ -45,6 +46,7 @@
     <ClInclude Include="source\resource\Resource.h" />
     <ClInclude Include="source\main.h" />
     <ClInclude Include="source\Vector2.h" />
+    <ClInclude Include="source\state\Title.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

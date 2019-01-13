@@ -24,6 +24,8 @@ private:
 	ResourceExtension extension;
 	std::string filePath;
 
+	int trimHandle;
+
 	Resource(const char* filePath);
 
 	static std::list<Resource*> resource_list;
@@ -33,5 +35,6 @@ private:
 public:
 	static Resource* Load(const char* filePath);
 	void Draw(float x, float y, float angle);
+	void Trim(float x, float y, float width, float height);
 	~Resource();
 };

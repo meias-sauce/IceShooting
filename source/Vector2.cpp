@@ -44,3 +44,31 @@ Vector2::Vector2(float x, float y) {
 	this->x = x;
 	this->y = y;
 }
+
+Vector2 Vector2::operator+(float value)
+{
+	this->x = this->x + value;
+	this->y = this->y + value;
+	return *this;
+}
+
+Vector2 Vector2::operator-(float value)
+{
+	this->x = this->x - value;
+	this->y = this->y - value;
+	return *this;
+}
+
+Vector2 Vector2::operator*(float value)
+{
+	this->x = this->x * value;
+	this->y = this->y * value;
+	return *this;
+}
+
+Vector2 Vector2::operator/(float value)
+{
+	this->x = this->x / value;
+	this->y = this->y / value;
+	return *this;
+}

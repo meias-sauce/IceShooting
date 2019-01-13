@@ -1,7 +1,9 @@
 #include "main.h"
 #include "DxLib.h"
-#include "Rect.h"
+//#include "collider/Rect.h"
 #include "controller/ControllerFacade.h"
+#include "state/GameStateManager.h"
+#include "camera/Camera.h"
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
@@ -38,7 +40,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	//•`‰ææ‚ğ— ‰æ–Ê‚Éİ’è
 	SetDrawScreen(DX_SCREEN_BACK);
 
-
+	/*
 	auto center = Vector2(200, 200);
 	auto size = Vector2(400, 30);
 	float angle = 0;
@@ -47,19 +49,27 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	auto center2 = Vector2(500, 240);
 	float angle2 = 1.5;
 	auto rect2 = Rect(center2, size, angle2);
+	*/
 
 	auto controller = ControllerFacade::GetInstance();
+	auto stateManager = GameStateManager::GetInstance();
+	auto camera = Camera::GetInstance();
 
 	//ƒƒCƒ“ƒ‹[ƒv
 	while (ScreenFlip() == 0 && ProcessMessage() == 0 && ClearDrawScreen() == 0 /*&& gpUpdateKey() == 0*/) {
 		//printfDx‚ğÁ‹
 		clsDx();
 
+		controller->Update();
+
+		stateManager->Update();
+		stateManager->Draw();
+
+		/*
+		auto vec = controller->analogVector();
+		
 		angle += 0.03;
 		angle2 += 0.01;
-
-		controller->Update();
-		auto vec = controller->analogVector();
 
 		center.x += vec.x / 300;
 		center.y += vec.y / 300;
@@ -72,7 +82,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			StartJoypadVibration(DX_INPUT_PAD1, 500, 100);
 			printfDx("‚ ‚Ä‚Ä‚ñ‚Ì‚æ");
 		}
-
+		*/
 
 		//printfDx("“®ì³í");
 	}

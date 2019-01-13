@@ -35,10 +35,13 @@ public:
 	bool PadDown(int);
 	bool PadUp(int);
 
+	//パッドが接続されているかどうかをboolで吐く
+	bool PadConnect();
+
 	//アナログパッドの入力をベクトルで吐く
-	Vector2 analogVector();
+	Vector2 AnalogVector();
 	//入力を正規化してから吐く（方向だけ必要な時用）
-	Vector2 analogNormalizeVector();
+	Vector2 AnalogNormalizeVector();
 
 	//ゲームパッド（1個目）を指定のミリ秒振動させる
 	void PadVibration(int);

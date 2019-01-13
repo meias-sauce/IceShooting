@@ -23,5 +23,7 @@ public:
 	static Camera* GetInstance();
 	~Camera();
 	void Draw(float x, float y, float angle, int handle);
+	void AddExtendRate(float value);
+	void SetExtendRate(float value);
 };
 

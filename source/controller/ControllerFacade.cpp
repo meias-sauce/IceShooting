@@ -74,15 +74,15 @@ bool ControllerFacade::PadConnect()
 	return result;
 }
 
-Vector2 ControllerFacade::analogVector()
+Vector2 ControllerFacade::AnalogVector()
 {
 	Vector2 result = { (float)this->contollerChecker->analogX, (float)this->contollerChecker->analogY };
 	return result;
 }
 
-Vector2 ControllerFacade::analogNormalizeVector()
+Vector2 ControllerFacade::AnalogNormalizeVector()
 {
-	auto result = this->analogVector();
+	auto result = this->AnalogVector();
 	result.Normalize();
 	return result;
 }
