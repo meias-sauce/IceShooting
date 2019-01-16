@@ -10,6 +10,8 @@
 //画像サイズ、取得しても良いがだるかったので手動定義
 #define PLAYER_GRAPH_WIDTH 3840
 #define PLAYER_GRAPH_HEIGHT 50
+//最高移動速度
+#define PLAYER_SPEED_MAX 10
 
 class Player :
 	public GameObject
@@ -29,5 +31,7 @@ public:
 
 	//コンボ数を投げると勝手に厚くなるぞ、薄くする場合はコンボ数をマイナスで入れよう
 	void AddThickness(int);
+
+	Rect* GetCollider();
 };
 

@@ -13,6 +13,9 @@ protected:
 	Resource* graphic = nullptr;
 	Rect* collider; //現状他に使用するcolliderが存在しないのでRectにしてしまっている
 
+	//生成されてからのフレーム数を記録
+	int frame;
+
 public:
 	GameObject();
 	~GameObject();

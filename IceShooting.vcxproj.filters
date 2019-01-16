@@ -14,6 +14,9 @@
     <ClCompile Include="source\collider\Line.cpp" />
     <ClCompile Include="source\collider\Rect.cpp" />
     <ClCompile Include="source\state\Title.cpp" />
+    <ClCompile Include="source\object\HotEnemy.cpp" />
+    <ClCompile Include="source\object\IceEnemy.cpp" />
+    <ClCompile Include="source\object\Enemy.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\main.h" />
@@ -29,5 +32,8 @@
     <ClInclude Include="source\collider\Line.h" />
     <ClInclude Include="source\collider\Rect.h" />
     <ClInclude Include="source\state\Title.h" />
+    <ClInclude Include="source\object\HotEnemy.h" />
+    <ClInclude Include="source\object\IceEnemy.h" />
+    <ClInclude Include="source\object\Enemy.h" />
   </ItemGroup>
 </Project>

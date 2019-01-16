@@ -38,3 +38,16 @@ void Camera::SetExtendRate(float value) {
 	this->extendRate = value;
 }
 
+
+float Camera::GetFrameLeft() {
+	return this->center.x - (this->windowSize.x / 2 / this->extendRate);
+}
+float Camera::GetFrameRight() {
+	return this->center.x + (this->windowSize.x / 2 / this->extendRate);
+}
+float Camera::GetFrameUp() {
+	return this->center.y - (this->windowSize.y / 2 / this->extendRate);
+}
+float Camera::GetFrameDown() {
+	return this->center.y + (this->windowSize.y / 2 / this->extendRate);
+}

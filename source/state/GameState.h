@@ -8,10 +8,12 @@ protected:
 	//State内のオブジェクトはとりあえず全部ぶっこむ
 	std::list<GameObject*> object_list;
 
+	int frame;
+
 public:
 	GameState();
 	~GameState();
-	void Update();
-	void Draw();
+	virtual void Update();
+	virtual void Draw();
 	//void AddObject(GameObject * object);
 };

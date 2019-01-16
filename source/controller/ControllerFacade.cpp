@@ -1,4 +1,5 @@
 #include "ControllerFacade.h"
+#include <cmath>
 
 ControllerFacade* ControllerFacade::instance = nullptr;
 
@@ -76,7 +77,34 @@ bool ControllerFacade::PadConnect()
 
 Vector2 ControllerFacade::AnalogVector()
 {
-	Vector2 result = { (float)this->contollerChecker->analogX, (float)this->contollerChecker->analogY };
+	Vector2 result;
+	if (this->PadConnect()) {
+		result = { (float)this->contollerChecker->analogX, (float)this->contollerChecker->analogY };
+	}
+	else {
+		int horizontal = 0;
+		int vertical = 0;
+		if (this->KeyPress(KEY_INPUT_LEFT)) {
+			horizontal -= 1;
+		}
+		if (this->KeyPress(KEY_INPUT_RIGHT)) {
+			horizontal += 1;
+		}
+		if (this->KeyPress(KEY_INPUT_UP)) {
+			vertical -= 1;
+		}
+		if (this->KeyPress(KEY_INPUT_DOWN)) {
+			vertical += 1;
+		}
+
+		//ŽÎ‚ß“ü—Í‚È‚ç
+		if (horizontal != 0 && vertical != 0) {
+			horizontal *= std::sqrt(2);
+			vertical *= std::sqrt(2);
+		}
+
+		result = { (float)horizontal * 1000, (float)vertical * 1000 };
+	}
 	return result;
 }
 

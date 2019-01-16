@@ -4,6 +4,7 @@
 
 GameState::GameState()
 {
+	this->frame = 0;
 }
 
 
@@ -17,15 +18,17 @@ GameState::~GameState()
 
 void GameState::Update() {
 	for (auto itr = this->object_list.begin(); itr != this->object_list.end();) {
-		(*itr)->Update();
 		if ((*itr)->endFlag) {
 			delete (*itr);
+			(*itr) = nullptr;
 			itr = this->object_list.erase(itr);
 		}
 		else {
+			(*itr)->Update();
 			itr++;
 		}
 	}
+	this->frame++;
 }
 
 void GameState::Draw() {

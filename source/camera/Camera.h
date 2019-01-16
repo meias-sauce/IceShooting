@@ -25,5 +25,9 @@ public:
 	void Draw(float x, float y, float angle, int handle);
 	void AddExtendRate(float value);
 	void SetExtendRate(float value);
+	float GetFrameLeft();
+	float GetFrameRight();
+	float GetFrameUp();
+	float GetFrameDown();
 };
 
