@@ -51,3 +51,18 @@ float Camera::GetFrameUp() {
 float Camera::GetFrameDown() {
 	return this->center.y + (this->windowSize.y / 2 / this->extendRate);
 }
+
+bool Camera::IsOutCamera(Vector2 pos, Vector2 size)
+{
+	bool result = false;
+	if (
+		pos.x + size.x / 2 < this->GetFrameLeft() ||
+		pos.x - size.x / 2 > this->GetFrameRight() ||
+		pos.y + size.y / 2 < this->GetFrameUp() ||
+		pos.y - size.y / 2 > this->GetFrameDown()
+		) {
+		result = true;
+	}
+
+	return result;
+}

@@ -37,6 +37,6 @@ void GameObject::Draw() {
 		this->graphic->Draw(pos.x, pos.y, angle);
 	}
 	if (this->collider != nullptr) {
-		this->collider->Draw();
+		//this->collider->Draw();
 	}
 }

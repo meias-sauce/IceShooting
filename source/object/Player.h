@@ -1,5 +1,6 @@
 #pragma once
-#include "c:\Users\meias\Desktop\game\IceShooting\source\object\GameObject.h"
+#include "GameObject.h"
+#include "Bullet.h"
 
 //デフォ厚み
 #define THICKNESS_DEFAULT 12.0
@@ -22,6 +23,9 @@ private:
 
 	float GetProgramThickness();
 
+	//Bullet* bullet_list[2];
+
+
 public:
 	Player();
 	~Player();
@@ -31,6 +35,12 @@ public:
 
 	//コンボ数を投げると勝手に厚くなるぞ、薄くする場合はコンボ数をマイナスで入れよう
 	void AddThickness(int);
+
+	void Shot(Bullet * bullet_list[]);
+
+	//両端から射撃するぞ
+	//void Shot();
+
 
 	Rect* GetCollider();
 };

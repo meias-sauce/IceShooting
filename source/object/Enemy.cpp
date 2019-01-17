@@ -46,3 +46,7 @@ void Enemy::Draw()
 
 void Enemy::CollidePlayer(Player* player , int combo) {
 }
+
+void Enemy::CollideBullet(Bullet * bullet)
+{
+}

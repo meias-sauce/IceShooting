@@ -2,6 +2,7 @@
 #include "../controller/ControllerFacade.h"
 #include "../resource/Resource.h"
 #include "../camera/Camera.h"
+#include "Bullet.h"
 
 float Player::GetProgramThickness()
 {
@@ -49,6 +50,9 @@ void Player::Update()
 void Player::Draw()
 {
 	GameObject::Draw();
+
+
+
 	printfDx("%f", this->thickness);
 }
 
@@ -62,7 +66,38 @@ void Player::AddThickness(int combo)
 	}
 	else {
 		//デバッグ用
-		this->thickness = 100;
+		//this->thickness = 100;
+	}
+}
+
+void Player::Shot(Bullet* bullet_list[]) {
+	if (bullet_list[0] == nullptr && bullet_list[1] == nullptr) {
+		Vector2 pos0;
+		pos0.x = std::cos(this->angle);
+		pos0.y = std::sin(this->angle);
+		pos0 = pos0 * this->thickness;
+		pos0.x += this->pos.x;
+		pos0.y += this->pos.y;
+
+		Vector2 pos1;
+		pos1.x = std::cos(this->angle);
+		pos1.y = std::sin(this->angle);
+		pos1 = pos1 * (-this->thickness);
+		pos1.x += this->pos.x;
+		pos1.y += this->pos.y;
+
+		Vector2 velo0;
+		velo0.x = std::cos(this->angle);
+		velo0.y = std::sin(this->angle);
+		velo0 = velo0 * 10;
+
+		Vector2 velo1;
+		velo1.x = std::cos(this->angle);
+		velo1.y = std::sin(this->angle);
+		velo1 = velo1 * (-10);
+
+		bullet_list[0] = new Bullet(pos0, velo0, this->angle);
+		bullet_list[1] = new Bullet(pos1, velo1, this->angle + 3.141592);
 	}
 }
 

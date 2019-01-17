@@ -7,5 +7,6 @@ public:
 	HotEnemy();
 	~HotEnemy();
 	void CollidePlayer(Player * player, int combo);
+	void CollideBullet(Bullet * bullet);
 };
 

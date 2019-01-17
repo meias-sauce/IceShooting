@@ -3,11 +3,14 @@
 #include "../object/IceEnemy.h"
 #include "../object/HotEnemy.h"
 #include "DxLib.h"
+#include "../controller/ControllerFacade.h"
 
 Title::Title()
 {
 	this->player = new Player();
 	this->object_list.push_back(player);
+	this->bullet_list[0] = nullptr;
+	this->bullet_list[1] = nullptr;
 }
 
 void Title::Update() {
@@ -27,12 +30,33 @@ void Title::Update() {
 		}
 		else {
 			(*itr)->CollidePlayer(player, 1);
+			for (auto bullet : this->bullet_list) {
+				if (bullet == nullptr) continue;
+				(*itr)->CollideBullet(bullet);
+			}
 			itr++;
 		}
 	}
 
+	const auto controller = ControllerFacade::GetInstance();
+	if (controller->KeyDown(KEY_INPUT_SPACE)) {
+		player->Shot(bullet_list);
+	}
+
+	for (auto& bullet : this->bullet_list) {
+		if (bullet == nullptr) continue;
+		bullet->Update();
+		if (bullet->endFlag) {
+			delete bullet;
+			bullet = nullptr;
+		}
+	}
 }
 
 void Title::Draw() {
 	GameState::Draw();
+	for (auto bullet : this->bullet_list) {
+		if (bullet == nullptr) continue;
+			bullet->Draw();
+	}
 }

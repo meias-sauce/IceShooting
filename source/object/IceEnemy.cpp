@@ -19,3 +19,11 @@ void IceEnemy::CollidePlayer(Player* player, int combo)
 		this->endFlag = true;
 	}
 }
+
+void IceEnemy::CollideBullet(Bullet * bullet)
+{
+	Enemy::CollideBullet(bullet);
+	if (bullet->GetCollider()->isCollision(*(this->collider))) {
+		bullet->endFlag = true;
+	}
+}

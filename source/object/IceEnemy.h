@@ -7,5 +7,6 @@ public:
 	IceEnemy();
 	~IceEnemy();
 	void CollidePlayer(Player * player, int combo);
+	void CollideBullet(Bullet * bullet);
 };
 

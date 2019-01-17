@@ -3,6 +3,7 @@
 #include "GameState.h"
 #include "../object/Player.h"
 #include "../object/Enemy.h"
+#include "../object/Bullet.h"
 
 class Title :
 	public GameState
@@ -10,6 +11,7 @@ class Title :
 private:
 	Player* player;
 	std::list<Enemy*> enemy_list;
+	Bullet* bullet_list[2];
 
 public:
 	Title();

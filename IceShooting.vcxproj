@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\object\Bullet.cpp" />
     <ClCompile Include="source\object\Enemy.cpp" />
     <ClCompile Include="source\object\HotEnemy.cpp" />
     <ClCompile Include="source\object\IceEnemy.cpp" />
@@ -37,6 +38,7 @@
     <ClCompile Include="source\state\Title.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="source\object\Bullet.h" />
     <ClInclude Include="source\object\Enemy.h" />
     <ClInclude Include="source\object\HotEnemy.h" />
     <ClInclude Include="source\object\IceEnemy.h" />

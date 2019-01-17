@@ -29,5 +29,8 @@ public:
 	float GetFrameRight();
 	float GetFrameUp();
 	float GetFrameDown();
+
+	//オブジェクトの位置とサイズを投げるとカメラの外か判定してくれる
+	bool IsOutCamera(Vector2 pos, Vector2 size);
 };
 
