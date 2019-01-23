@@ -18,6 +18,7 @@
     <ClCompile Include="source\object\IceEnemy.cpp" />
     <ClCompile Include="source\object\Enemy.cpp" />
     <ClCompile Include="source\object\Bullet.cpp" />
+    <ClCompile Include="source\state\Play.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\main.h" />
@@ -37,5 +38,6 @@
     <ClInclude Include="source\object\IceEnemy.h" />
     <ClInclude Include="source\object\Enemy.h" />
     <ClInclude Include="source\object\Bullet.h" />
+    <ClInclude Include="source\state\Play.h" />
   </ItemGroup>
 </Project>

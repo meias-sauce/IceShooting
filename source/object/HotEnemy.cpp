@@ -1,5 +1,7 @@
 #include "HotEnemy.h"
+#include "IceEnemy.h"
 #include "../resource/Resource.h"
+#include "../state/Play.h"
 
 HotEnemy::HotEnemy()
 {
@@ -15,7 +17,7 @@ HotEnemy::~HotEnemy()
 void HotEnemy::CollidePlayer(Player* player, int combo)
 {
 	Enemy::CollidePlayer(player, combo);
-	if (player->GetCollider()->isCollision(*(this->collider))) {
+	if (player->GetCollider()->IsCollision(*(this->collider))) {
 		player->AddThickness(-combo);
 		this->endFlag = true;
 	}
@@ -24,8 +26,9 @@ void HotEnemy::CollidePlayer(Player* player, int combo)
 void HotEnemy::CollideBullet(Bullet * bullet)
 {
 	Enemy::CollideBullet(bullet);
-	if (bullet->GetCollider()->isCollision(*(this->collider))) {
+	if (bullet->GetCollider()->IsCollision(*(this->collider))) {
 		bullet->endFlag = true;
+		this->iceChangeFlag = true;
 		this->endFlag = true;
 	}
 }

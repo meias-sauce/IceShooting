@@ -33,7 +33,7 @@ void Rect::SetParameter(Vector2 center, Vector2 size, float angle) {
 	this->line_list[3] = Line(vertex[3], vertex[0]);
 }
 
-bool Rect::isCollision(Rect r1, Rect r2) {
+bool Rect::IsCollision(Rect r1, Rect r2) {
 	for (auto r1Line : r1.line_list) {
 		for (auto r2Line : r2.line_list) {
 			bool cross = Line::isCrossed(r1Line, r2Line);
@@ -45,8 +45,8 @@ bool Rect::isCollision(Rect r1, Rect r2) {
 	return false; //‚±‚±‚É—ˆ‚½‚çfalse
 }
 
-bool Rect::isCollision(Rect r) {
-	return Rect::isCollision(*this, r);
+bool Rect::IsCollision(Rect r) {
+	return Rect::IsCollision(*this, r);
 }
 
 Rect::~Rect()

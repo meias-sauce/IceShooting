@@ -1,11 +1,12 @@
 #include "GameStateManager.h"
 #include "Title.h"
+#include "Play.h"
 
 GameStateManager* GameStateManager::instance = nullptr;
 
 GameStateManager::GameStateManager()
 {
-	state = new Title();
+	state = new Play();
 }
 
 
@@ -40,11 +41,12 @@ void GameStateManager::ChangeState(GameStateType toState)
 		this->state = new Title();
 		break;
 	case PLAY:
-		//this->state = new Play();
+		this->state = new Play();
 		break;
 	case RESULT:
 		//this->state = new Result();
 		break;
 	}
 }
+
 

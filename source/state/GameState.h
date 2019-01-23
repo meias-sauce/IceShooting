@@ -15,5 +15,4 @@ public:
 	~GameState();
 	virtual void Update();
 	virtual void Draw();
-	//void AddObject(GameObject * object);
 };

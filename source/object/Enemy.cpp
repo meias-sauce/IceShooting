@@ -12,13 +12,14 @@ Enemy::Enemy()
 	auto up = camera->GetFrameUp();
 	auto bottom = camera->GetFrameDown();
 
-
 	this->pos.x = camera->GetFrameLeft() + GetRand(camera->GetFrameRight() - camera->GetFrameLeft());
 	this->pos.y = camera->GetFrameUp() - GetRand(200);
 	this->velo.y = GetRand(3) + 2;
 
 	this->colliderAngle = 0;
 	this->collider = new Rect(this->pos, Vector2(50 /sqrt(2), 50 / sqrt(2)), this->colliderAngle);
+
+	this->iceChangeFlag = false;
 }
 
 
@@ -49,4 +50,14 @@ void Enemy::CollidePlayer(Player* player , int combo) {
 
 void Enemy::CollideBullet(Bullet * bullet)
 {
+}
+
+Vector2 Enemy::GetPos()
+{
+	return this->pos;
+}
+
+Vector2 Enemy::GetVelo()
+{
+	return this->velo;
 }

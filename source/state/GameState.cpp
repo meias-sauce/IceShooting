@@ -36,7 +36,3 @@ void GameState::Draw() {
 		object->Draw();
 	}
 }
-/*
-void GameState::AddObject(GameObject* object) {
-	this->object_list.push_back(object);
-}*/

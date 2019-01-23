@@ -1,11 +1,11 @@
-#include "Title.h"
+#include "Play.h"
 #include "../object/Player.h"
 #include "../object/IceEnemy.h"
 #include "../object/HotEnemy.h"
 #include "DxLib.h"
 #include "../controller/ControllerFacade.h"
 
-Title::Title()
+Play::Play()
 {
 	this->player = new Player();
 	this->object_list.push_back(player);
@@ -13,7 +13,13 @@ Title::Title()
 	this->bullet_list[1] = nullptr;
 }
 
-void Title::Update() {
+void Play::Update() {
+	for (auto enemy : this->enemy_list) {
+		if (enemy->iceChangeFlag) {
+			this->enemy_list.push_back(new IceEnemy(enemy->GetPos(), enemy->GetVelo()));
+			this->object_list.push_back(*(--this->enemy_list.end()));
+		}
+	}
 	GameState::Update();
 	if (this->frame % 60 == 0) {
 
@@ -53,6 +59,16 @@ void Title::Update() {
 	}
 }
 
-void Title::Draw() {
+void Play::Draw() {
 	GameState::Draw();
+	for (auto bullet : this->bullet_list) {
+		if (bullet == nullptr) continue;
+		bullet->Draw();
+	}
 }
+/*
+void Play::AddEnemy(Enemy * obj)
+{
+	this->enemy_list.push_back(obj);
+	this->object_list.push_back(*(--this->enemy_list.end()));
+}*/

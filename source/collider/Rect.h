@@ -10,8 +10,8 @@ struct Rect
 	Line line_list[4];
 
 	void SetParameter(Vector2, Vector2, float);
-	static bool isCollision(Rect, Rect);
-	bool isCollision(Rect);
+	static bool IsCollision(Rect, Rect);
+	bool IsCollision(Rect);
 
 	Rect(Vector2, Vector2, float);
 	~Rect();
